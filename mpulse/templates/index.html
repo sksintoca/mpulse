@@ -1,0 +1,27 @@
+<!doctype html>
+<title>mPulse Mobile Test </title>
+
+  <h1>mPulse Mobile Test API service</h1>
+      API Routes 
+
+  <h3>Read Members by:</h3>
+      /member/<int:id>                    Primary Key Id<br>
+      /member/id/<int:id>                 Primary Key Id<br>
+      /members/phone/<phone>              Phone Number<br>
+      /members/clientid/<clientid>        Client Member Id<br> 
+      /members/                           Read list of members<br>
+      /members/account/<int:account_id>   Read list of member for account<br>
+  
+    <h3>Create new members</h3>
+      /member                     methods=["POST"]<br>
+      /upload                     methods=['POST']<br>
+    <br><b>Examples:</b><br>
+      curl -i -X POST -H "Content-Type: multipart/form-data" -F "file=@member_data.csv" http://localhost:5000/upload<br>
+      curl -d "@data.json" -H "Content-Type: application/json" -X POST http://localhost:5000/member<br>
+
+    <h3>Delete member records</h3>
+      /members/clear               methods=["DELETE"]<br>
+      /members/clear/<clientid>    methods=["DELETE"]<br>
+    <br><b>Examples:</b><br>
+      curl -X DELETE http://localhost:5000/members/clear<br>
+    
